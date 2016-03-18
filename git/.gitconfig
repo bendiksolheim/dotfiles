@@ -1,0 +1,14 @@
+[push]
+	default = simple
+[user]
+	name = Bendik Solheim
+	email = bendik@solheim.im
+[core]
+	excludesfile = ~/.gitignore_global
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[pull]
+	rebase = true
