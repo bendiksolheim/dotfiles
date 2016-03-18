@@ -36,3 +36,5 @@ set blame-view = \
 set tab-size = 4
 set refresh-mode = periodic
 set refresh-interval = 5
+
+bind refs ! !?git branch -d %(branch)
