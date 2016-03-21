@@ -1,1 +1,12 @@
+# Mac folder index file
 .DS_Store
+
+# Telenor stuff
+run.sh
+deployment/norm-server/servers/
+
+# Projectile project file
+.projectile
+
+# Tern port file
+.tern-port
