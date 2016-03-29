@@ -260,6 +260,7 @@ layers configuration. You are free to put any user code."
   ;; Spacemacs
   (spacemacs/toggle-truncate-lines-on)
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
+  (setq powerline-default-separator 'arrow)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
