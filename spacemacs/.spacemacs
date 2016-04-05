@@ -1,3 +1,4 @@
+
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
@@ -38,6 +39,7 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ranger
+     restclient
      syntax-checking
      ;; version-control
      (osx :variables osx-use-option-as-meta nil)
