@@ -265,6 +265,7 @@ layers configuration. You are free to put any user code."
   (spacemacs/toggle-truncate-lines-on)
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
   (setq powerline-default-separator 'arrow)
+  (global-linum-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
