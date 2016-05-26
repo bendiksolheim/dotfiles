@@ -27,6 +27,7 @@ values."
      auto-completion
      ;; better-defaults
      colors
+     elm
      emacs-lisp
      haskell
      html
