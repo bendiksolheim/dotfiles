@@ -49,7 +49,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+    dumb-jump
+    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -266,6 +269,7 @@ layers configuration. You are free to put any user code."
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
   (setq powerline-default-separator 'arrow)
   (global-linum-mode)
+  (dumb-jump-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
