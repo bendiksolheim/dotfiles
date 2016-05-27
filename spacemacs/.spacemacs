@@ -44,13 +44,16 @@ values."
      restclient
      syntax-checking
      ;; version-control
-     (osx :variables osx-use-option-as-meta nil)
+     (osx :variables osx-use-option-as-meta t)
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+    dumb-jump
+    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -193,7 +196,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -267,6 +270,7 @@ layers configuration. You are free to put any user code."
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
   (setq powerline-default-separator 'arrow)
   (global-linum-mode)
+  (dumb-jump-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
