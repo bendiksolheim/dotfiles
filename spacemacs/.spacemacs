@@ -45,7 +45,7 @@ values."
      restclient
      syntax-checking
      ;; version-control
-     (osx :variables osx-use-option-as-meta t)
+     osx
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -247,6 +247,8 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (setq mac-option-key-is-meta t)
+  (setq mac-right-option-modifier nil)
   )
 
 (defun dotspacemacs/user-config ()
