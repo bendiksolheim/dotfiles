@@ -32,6 +32,7 @@ values."
      haskell
      html
      markdown
+     java
      javascript
      ;; git
      ;; markdown
