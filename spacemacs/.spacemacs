@@ -259,8 +259,8 @@ layers configuration. You are free to put any user code."
   ;; Web
   (setq-default js2-basic-offset 4)
   (setq-default js-indent-level 4)
-  (setq-default css-indent-level 2)
-  (setq-default css-indent-offset 2)
+  (setq-default css-indent-level 4)
+  (setq-default css-indent-offset 4)
   (setq-default web-mode-comment-style 2)
   (setq projectile-indexing-method 'alien)
 
@@ -284,7 +284,7 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(paradox-github-token t)
- '(markdown-command "/usr/bin/pandoc"))
+ '(markdown-command "/usr/local/bin/pandoc"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
