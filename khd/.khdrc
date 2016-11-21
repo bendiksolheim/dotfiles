@@ -34,6 +34,9 @@ ctrl - 1                 :    kwmc space -fExperimental 1
 ctrl - 2                 :    kwmc space -fExperimental 2
 ctrl - 3                 :    kwmc space -fExperimental 3
 ctrl - 4                 :    kwmc space -fExperimental 4
+ctrl - 5                 :    kwmc space -fExperimental 5
+ctrl - 6                 :    kwmc space -fExperimental 6
+ctrl - 7                 :    kwmc space -fExperimental 7
 
 # Rotate Window-Tree By 90degrees (Clockwise)
 cmd + ctrl - r           :    kwmc tree rotate 90
@@ -107,6 +110,9 @@ ctrl + shift - 1           :    kwmc window -m space 1
 ctrl + shift - 2           :    kwmc window -m space 2
 ctrl + shift - 3           :    kwmc window -m space 3
 ctrl + shift - 4           :    kwmc window -m space 4
+ctrl + shift - 5           :    kwmc window -m space 5
+ctrl + shift - 6           :    kwmc window -m space 6
+ctrl + shift - 7           :    kwmc window -m space 7
 
 # Move Focused Window To Screen
 #ctrl + alt - 1           :    kwmc window -m display 0
