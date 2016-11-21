@@ -119,8 +119,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+   dotspacemacs-default-font '("Fira Code"
+                               :size 17
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -253,6 +253,42 @@ any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
   (setq mac-option-key-is-meta t)
   (setq mac-right-option-modifier nil)
+
+  ;; Fira Code
+  (defun fira-code ()
+    (when (window-system)
+      (set-default-font "Fira Code"))
+    (let ((alist '(
+                   (33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
+                   (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
+                   (36 . ".\\(?:>\\)")
+                   (37 . ".\\(?:\\(?:%%\\)\\|%\\)")
+                   (38 . ".\\(?:\\(?:&&\\)\\|&\\)")
+                   (42 . ".\\(?:\\(?:\\*\\*/\\)\\|\\(?:\\*[*/]\\)\\|[*/>]\\)")
+                   (43 . ".\\(?:\\(?:\\+\\+\\)\\|[+>]\\)")
+                   (45 . ".\\(?:\\(?:-[>-]\\|<<\\|>>\\)\\|[<>}~-]\\)")
+                   ;; (46 . ".\\(?:\\(?:\\.[.<]\\)\\|[.=-]\\)")
+                   (47 . ".\\(?:\\(?:\\*\\*\\|//\\|==\\)\\|[*/=>]\\)")
+                   (48 . ".\\(?:x[a-zA-Z]\\)")
+                   (58 . ".\\(?:::\\|[:=]\\)")
+                   (59 . ".\\(?:;;\\|;\\)")
+                   (60 . ".\\(?:\\(?:!--\\)\\|\\(?:~~\\|->\\|\\$>\\|\\*>\\|\\+>\\|--\\|<[<=-]\\|=[<=>]\\||>\\)\\|[*$+~/<=>|-]\\)")
+                   (61 . ".\\(?:\\(?:/=\\|:=\\|<<\\|=[=>]\\|>>\\)\\|[<=>~]\\)")
+                   (62 . ".\\(?:\\(?:=>\\|>[=>-]\\)\\|[=>-]\\)")
+                   (63 . ".\\(?:\\(\\?\\?\\)\\|[:=?]\\)")
+                   (91 . ".\\(?:]\\)")
+                   (92 . ".\\(?:\\(?:\\\\\\\\\\)\\|\\\\\\)")
+                   (94 . ".\\(?:=\\)")
+                   (119 . ".\\(?:ww\\)")
+                   (123 . ".\\(?:-\\)")
+                   (124 . ".\\(?:\\(?:|[=|]\\)\\|[=>|]\\)")
+                   (126 . ".\\(?:~>\\|~~\\|[>=@~-]\\)")
+                   )
+                 ))
+      (dolist (char-regexp alist)
+        (set-char-table-range composition-function-table (car char-regexp)
+                              `([,(cdr char-regexp) 0 font-shape-gstring]))))
+    )
   )
 
 (defun dotspacemacs/user-config ()
@@ -278,6 +314,9 @@ layers configuration. You are free to put any user code."
   (setq powerline-default-separator 'arrow)
   (global-linum-mode)
   (dumb-jump-mode)
+
+  ;; Fira Code
+  (add-hook 'prog-mode-hook 'fira-code)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
