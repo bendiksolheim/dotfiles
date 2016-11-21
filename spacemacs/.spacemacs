@@ -308,6 +308,9 @@ layers configuration. You are free to put any user code."
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (add-to-list 'exec-path "~/.local/bin")
 
+  ;; Elm
+  (setq elm-format-on-save t)
+
   ;; Spacemacs
   (spacemacs/toggle-truncate-lines-on)
   (add-hook 'text-mode-hook 'spacemacs/toggle-truncate-lines-on)
