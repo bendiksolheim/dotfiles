@@ -17,7 +17,6 @@ ctrl - s                 :    khd -e "mode activate prefix"
 cmd + alt + ctrl - q     :    kwmc quit
 
 # Launch iTerm2
-cmd - return             :    open -na /Applications/iTerm2.app
 prefix - e               :    open -a /Applications/Emacs.app
 
 # Set Space Tiling Mode To BSP
