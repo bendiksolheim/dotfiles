@@ -114,9 +114,9 @@ ctrl + shift - 6           :    kwmc window -m space 6
 ctrl + shift - 7           :    kwmc window -m space 7
 
 # Move Focused Window To Screen
-#ctrl + alt - 1           :    kwmc window -m display 0
-#ctrl + alt - 2           :    kwmc window -m display 1
-#ctrl + alt - 3           :    kwmc window -m display 2
+ctrl + alt - 1           :    kwmc window -m display 0
+ctrl + alt - 2           :    kwmc window -m display 1
+ctrl + alt - 3           :    kwmc window -m display 2
 
 # Increase Container Gaps
 prefix - x               :    kwmc space -g increase horizontal
