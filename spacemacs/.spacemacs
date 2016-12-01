@@ -44,6 +44,7 @@ values."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ranger
+     react
      restclient
      ruby
      syntax-checking
@@ -320,6 +321,9 @@ layers configuration. You are free to put any user code."
 
   ;; Fira Code
   (add-hook 'prog-mode-hook 'fira-code)
+
+  ;; Make .js files load in react mode
+  (push '("\\.js\\'" . react-mode) auto-mode-alist)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
