@@ -10,6 +10,7 @@ deployment/norm-server/servers/
 
 # Tern port file
 .tern-port
+.tern-project
 
 # Restclient file
 restclient
