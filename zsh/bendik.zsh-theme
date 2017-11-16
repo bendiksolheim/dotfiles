@@ -1,5 +1,5 @@
 local current_directory="%{$reset_color%}%c "
-local ret_status="%(?:%{$fg[green]%}λ :%{$fg[red]%}λ %s)"
+local ret_status="%(?:%{$fg[magenta]%}λ :%{$fg[red]%}λ %s)"
 
 function git_prompt() {
     echo "$(parse_git_dirty)$(git_current_branch)%{$reset_color%} "
