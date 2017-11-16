@@ -1,11 +1,15 @@
 [push]
 	default = simple
+[merge]
+    renamelimit = 1500
 [user]
 	name = Bendik Solheim
 	email = bendik@solheim.im
 [core]
 	excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes_global
+	quotepath = false
+	precomposeunicode = false
 [alias]
 	st = status --short --branch
 	ci = commit
