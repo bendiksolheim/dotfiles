@@ -98,3 +98,9 @@ alias markdown="pandoc"
 
 # Maven options
 export MAVEN_OPTS="-Xmx16384m -Xms256m -XX:MaxPermSize=8192m"
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+# End Nix
