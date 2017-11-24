@@ -45,7 +45,7 @@ ZSH_THEME="bendik"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git node)
 
 # User configuration
 
@@ -76,31 +76,26 @@ export EDITOR='vim'
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-function branchname() {
-	BRANCH_NAME=`git branch -a | grep -E  "remotes.*6576" | cut -c 18-`
-	echo $BRANCH_NAME
-}
-
-function pbcopy() {
-	xargs | xclip -selection clipboard
-}
-
-function pbpaste() {
-	xclip -selection clipboard -o
-}
-
 alias open="xdg-open $1 &> /dev/null"
 alias tigs="tig status"
 alias webserver="python -m SimpleHTTPServer 3000"
 alias markdown="pandoc"
 
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias muxnew='tmux new -s'
+alias muxlist='tmux list-sessions'
+alias muxswitch='tmux switch -t'
+alias mux='tmux attach -t'
 
 # Maven options
 export MAVEN_OPTS="-Xmx16384m -Xms256m -XX:MaxPermSize=8192m"
+export M2_REPO=~/.m2/repository
 
 # Nix
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 # End Nix
+
+function port() {
+    sudo lsof -i :$1
+}
