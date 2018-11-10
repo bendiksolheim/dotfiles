@@ -1,4 +1,4 @@
-local current_directory="%{$reset_color%}%c "
+local current_directory="%{$reset_color%}%c"
 local ret_status="%(?:%{$fg[magenta]%}λ :%{$fg[red]%}λ %s)"
 
 function git_prompt() {
@@ -20,6 +20,6 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=" %{$reset_color%}⟶ "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%}"
 #ZSH_THEME_GIT_PROMPT_CLEAN="%{$reset_color%}"
 
-PROMPT='${current_directory}${ret_status} %{$reset_color%}'
+PROMPT='${current_directory} ${ret_status} %{$reset_color%}'
 RPROMPT='$(git_status)'
 
