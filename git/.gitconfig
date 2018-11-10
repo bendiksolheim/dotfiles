@@ -10,6 +10,7 @@
     attributesfile = ~/.gitattributes_global
 	quotepath = false
 	precomposeunicode = false
+	pager = less
 [alias]
 	st = status --short --branch
 	ci = commit
