@@ -16,3 +16,6 @@ deployment/norm-server/servers/
 restclient
 
 TAGS
+
+# jEnv version file
+.java-version
