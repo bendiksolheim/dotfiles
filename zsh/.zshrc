@@ -27,5 +27,3 @@ export M2_REPO=~/.m2/repository
 function port() {
     sudo lsof -i :$1
 }
-
-PATH=$PATH:~/.npm-package/bin
