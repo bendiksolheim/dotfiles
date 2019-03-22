@@ -26,3 +26,5 @@
     prompt = false
 [difftoool "icdiff"]
     cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[github]
+	user = bendiksolheim
