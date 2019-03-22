@@ -27,3 +27,7 @@ export M2_REPO=~/.m2/repository
 function port() {
     sudo lsof -i :$1
 }
+
+function f() {
+    find . -iname $1
+}
