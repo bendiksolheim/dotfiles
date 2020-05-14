@@ -1,24 +1,26 @@
 [push]
-	default = simple
+    default = simple
 [merge]
     renamelimit = 1500
 [user]
-	name = Bendik Solheim
-	email = bendik@solheim.im
+    name = Bendik Solheim
+    email = hello@bendik.dev
+    signkey = 1AC0EB7FD69E5FD9
+    signingkey = 1AFF39580605A629
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
     attributesfile = ~/.gitattributes_global
-	quotepath = false
-	precomposeunicode = false
-	pager = less
+    quotepath = false
+    precomposeunicode = false
+    pager = cat
 [alias]
-	st = status --short --branch
-	ci = commit
-	co = checkout
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	recent = "!r() { cur=$(git rev-parse --abbrev-ref HEAD); git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | sed 's/m${cur}|/m* ${cur}|/' | column -ts'|'; }; r"
+    st = status --short --branch
+    ci = commit
+    co = checkout
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    recent = "!r() { cur=$(git rev-parse --abbrev-ref HEAD); git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)' | sed 's/m${cur}|/m* ${cur}|/' | column -ts'|'; }; r"
 [pull]
-	rebase = true
+    rebase = true
 [diff]
     tool = icdiff
     compactionHeuristic = true
@@ -27,4 +29,11 @@
 [difftoool "icdiff"]
     cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [github]
-	user = bendiksolheim
+    user = bendiksolheim
+[commit]
+    gpgsign = true
+[gpg]
+    program = gpg
+
+[includeIf "gitdir:~/bekk/kunder/vegvesen/"]
+    path = ~/bekk/kunder/vegvesen/.gitconfig.vegvesen
