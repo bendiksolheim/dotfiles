@@ -5,7 +5,6 @@
 [user]
     name = Bendik Solheim
     email = hello@bendik.dev
-    signkey = 1AC0EB7FD69E5FD9
     signingkey = 1AFF39580605A629
 [core]
     excludesfile = ~/.gitignore_global
