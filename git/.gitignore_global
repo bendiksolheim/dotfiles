@@ -19,3 +19,6 @@ TAGS
 
 # jEnv version file
 .java-version
+
+# Customer
+local-format.sh
