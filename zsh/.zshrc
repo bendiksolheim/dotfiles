@@ -16,8 +16,6 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 #################
 
 setopt AUTO_CD
-setopt CORRECT
-setopt CORRECT_ALL
 
 # Restore ctrl+r, ctrl+a and so on
 bindkey -e
@@ -68,7 +66,7 @@ precmd() {
 # Aliases #
 ###########
 
-alias l="ls -la"
+alias l="ls -laG"
 alias tigs="tig status"
 alias markdown="pandoc"
 
@@ -76,7 +74,9 @@ alias tn='tmux new -s'
 alias tl='tmux list-sessions'
 alias ts='tmux switch -t'
 alias ta='tmux attach -t'
+alias tk='tmux kill-session -t'
 alias ec='emacsclient'
+alias gs='goose'
 
 # GPG
 export GPG_TTY=$(tty)
@@ -90,12 +90,7 @@ export EDITOR='vim'
 
 # Find processes using a port
 function port() {
-    sudo lsof -i :$1
-}
-
-# Convenience version of find
-function f() {
-    find -E . -regex ".*$1.*"
+    sudo lsof -i :"$1"
 }
 
 # Start web server on given port
@@ -103,5 +98,54 @@ function webserver() {
     echo "a ${1}"
     PORT="${1:-3000}"
     echo "Starting webserver on port ${PORT}"
-    python -m SimpleHTTPServer $PORT
+    python -m SimpleHTTPServer "$PORT"
 }
+
+###########################
+# Java Version management #
+###########################
+
+# Utility function to extract version from release file in java folder
+_java_version() {
+    local version_path=$1
+    if [[ -f $version_path/release ]]; then
+        grep "JAVA_VERSION=" < "$version_path"/release | sed -E 's/JAVA_VERSION=|\"//g'
+    else
+        echo "$version_path"
+    fi
+}
+
+# List current version with "jdk", or change with "jdk 12"
+jdk() {
+    local version=${1:-""}
+    local silent=${2:-false}
+    if [[ $version = "" ]]; then
+        java -version
+    else
+        JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+        export JAVA_HOME
+        if [[ $silent = false ]]; then
+            java -version
+        fi
+    fi
+}
+
+# List available, globally set, and locally set java versions with "jdks"
+jdks() {
+    echo "Java versions"
+    /usr/libexec/java_home -V 2>&1 | sed 1d | sed '$d' | cut -d, -f1
+    echo "Global: $(_java_version "$(/usr/libexec/java_home)")"
+    if [[ -n $JAVA_HOME ]]; then
+        echo "Local:  $(_java_version "$JAVA_HOME")"
+    fi
+}
+
+# Automatically change java version froom .java-version file
+autoload -U add-zsh-hook
+_jdk_autoload_hook() {
+    if [[ -f .java-version ]]; then
+        jdk "$(cat .java-version)" true
+    fi
+}
+
+add-zsh-hook chpwd _jdk_autoload_hook
