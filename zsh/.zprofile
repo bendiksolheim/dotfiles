@@ -22,3 +22,5 @@ fi
 if command -v "fnm" &>/dev/null; then
   eval "$(fnm env --shell=zsh)"
 fi
+
+source ~/.zprofile-custom
