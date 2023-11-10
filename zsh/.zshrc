@@ -175,7 +175,7 @@ add-zsh-hook chpwd _jdk_autoload_hook
 # Custom config   #
 ###################
 
-source .zshrc-custom
+source ~/.zshrc-custom
 
 # bun completions
 [ -s "/Users/bendik/.bun/_bun" ] && source "/Users/bendik/.bun/_bun"
