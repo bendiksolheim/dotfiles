@@ -1,3 +1,17 @@
+if [[ $TERM == "dumb" ]]
+then
+    unsetopt zle 
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    if whence -w precmd >/dev/null; then
+        unfunction precmd
+    fi
+    if whence -w preexec >/dev/null; then
+        unfunction preexec
+    fi
+    PS1='$ '
+fi
+
 ###############
 # Completions #
 ###############
@@ -14,6 +28,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 #################
 # Shell options #
 #################
+
+# Shell colors
+export CLICOLORS=1
 
 setopt AUTO_CD
 
@@ -66,17 +83,19 @@ precmd() {
 # Aliases #
 ###########
 
-alias l="ls -laG"
+alias l="ls -laGh"
 alias tigs="tig status"
 alias markdown="pandoc"
 
-alias tn='tmux new -s'
-alias tl='tmux list-sessions'
-alias ts='tmux switch -t'
-alias ta='tmux attach -t'
-alias tk='tmux kill-session -t'
-alias ec='emacsclient'
-alias gs='goose'
+# Zellij
+alias zl='zellij ls'
+alias zn='zellij -s'
+alias za='zellij a'
+alias zk='zellij kill-session'
+
+# Docker
+alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}"'
+alias docker-start-exited="docker ps -f status=exited | awk '{ if (NR!=1) { print $1 }}' | xargs docker start"
 
 # GPG
 export GPG_TTY=$(tty)
@@ -90,7 +109,7 @@ export EDITOR='vim'
 
 # Find processes using a port
 function port() {
-    sudo lsof -i :"$1"
+    lsof -i :"$1"
 }
 
 # Start web server on given port
@@ -122,6 +141,8 @@ jdk() {
     if [[ $version = "" ]]; then
         java -version
     else
+        # Big Sur never changes version if JAVA_HOME is set. Unset it first.
+        unset JAVA_HOME
         JAVA_HOME=$(/usr/libexec/java_home -v"$version");
         export JAVA_HOME
         if [[ $silent = false ]]; then
@@ -149,3 +170,16 @@ _jdk_autoload_hook() {
 }
 
 add-zsh-hook chpwd _jdk_autoload_hook
+
+###################
+# Custom config   #
+###################
+
+source .zshrc-custom
+
+# bun completions
+[ -s "/Users/bendik/.bun/_bun" ] && source "/Users/bendik/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
