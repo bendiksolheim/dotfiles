@@ -91,7 +91,7 @@ alias markdown="pandoc"
 alias zl='zellij ls'
 alias zn='zellij -s'
 alias za='zellij a'
-alias zk='zellij kill-session'
+alias zk='zellij delete-session'
 
 # Docker
 alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}"'
