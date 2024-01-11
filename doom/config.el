@@ -20,9 +20,9 @@
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
-(setq doom-font (font-spec :family "Roboto Mono" :size 14 :weight 'normal)
-      doom-serif-font (font-spec :family "Roboto Mono" :size 14 :weight 'normal)
-      doom-big-font (font-spec :family "Roboto Mono" :size 16 :weight 'bold))
+(setq doom-font (font-spec :family "Iosevka" :size 14 :weight 'normal)
+      doom-serif-font (font-spec :family "Iosevka" :size 14 :weight 'normal)
+      doom-big-font (font-spec :family "Iosevka" :size 16 :weight 'bold))
 
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
