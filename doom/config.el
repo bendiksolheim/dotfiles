@@ -52,20 +52,18 @@
 (setq-hook! 'ruby-mode-hook +format-with :none)
 
 ;; Key bindings
-(map! :n "'" #'evil-window-map)
+(map! :gnm "'" #'evil-window-map)
 (map! :n "s-k" #'evil-jump-backward)
 (map! :n "s-j" #'evil-jump-forward)
 (map! :leader :prefix "w" "'" #'other-window)
 (map! :leader :prefix "w" "-" #'evil-window-split)
-(map! :leader :prefix "w" "|" #'evil-window-vsplit)
+(map! :leader :prefix "w" "/" #'evil-window-vsplit)
 (map! :leader :prefix ("$" . "AI")
       (:desc "Refactor" "r" #'org-ai-refactor-code
        :desc "Billing" "$" #'org-ai-open-account-usage-page
        :desc "Query ChatGPT" "q" #'org-ai-prompt
        :desc "Debug" "d" #'org-ai-open-request-buffer))
 (map! :leader :n "h h" #'helpful-at-point)
-;;(map! :map window-mo)
-
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
