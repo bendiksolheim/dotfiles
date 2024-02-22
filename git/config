@@ -1,5 +1,5 @@
 [include]
-    path = ~/.gitconfig-custom
+    path = ./config-custom
 
 [push]
     default = simple
@@ -8,8 +8,8 @@
     renamelimit = 1500
 
 [core]
-    excludesfile = ~/.gitignore_global
-    attributesfile = ~/.gitattributes_global
+    excludesfile = ./gitignore_global
+    attributesfile = ./gitattributes_global
     quotepath = false
     precomposeunicode = false
 
