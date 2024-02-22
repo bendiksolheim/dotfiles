@@ -175,16 +175,10 @@ add-zsh-hook chpwd _jdk_autoload_hook
 # Custom config   #
 ###################
 
+# Source custom config which for some reason cannot be commited to git
 source ~/.zshrc-custom
 
-# bun completions
-[ -s "/Users/bendik/.bun/_bun" ] && source "/Users/bendik/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-#
+# Load correct Node/NPM version
 eval "$(fnm env --use-on-cd)"
 
 # Force git to check for three config key env vars
