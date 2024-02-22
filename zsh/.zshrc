@@ -186,3 +186,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 #
 eval "$(fnm env --use-on-cd)"
+
+# Force git to check for three config key env vars
+# We use these to set user.name, user.email and user.signingKey
+# Docs: https://github.com/git/git/blob/d8d77153eafdb0fc334e827976f09e4bdff26b58/Documentation/git-config.txt#L340-L355
+export GIT_CONFIG_COUNT=3
