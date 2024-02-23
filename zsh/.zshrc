@@ -86,6 +86,7 @@ precmd() {
 alias l="ls -laGh"
 alias tigs="tig status"
 alias markdown="pandoc"
+alias vim="nvim"
 
 # Zellij
 alias zl='zellij ls'
