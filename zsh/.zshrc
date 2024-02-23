@@ -176,12 +176,17 @@ add-zsh-hook chpwd _jdk_autoload_hook
 ###################
 
 # Source custom config which for some reason cannot be commited to git
-source ~/.zshrc-custom
+if [ -f ~/.zshrc-custom ]; then
+    source ~/.zshrc-custom
+fi
 
-# Load correct Node/NPM version
-eval "$(fnm env --use-on-cd)"
+# Load correct Node/NPM version if fnm is installed
+if [ -x "$(command -v fnm)" ]; then
+    eval "$(fnm env --use-on-cd)"
+fi
 
 # Force git to check for three config key env vars
 # We use these to set user.name, user.email and user.signingKey
+# A good place to export them will be ~/.zshrc-custom
 # Docs: https://github.com/git/git/blob/d8d77153eafdb0fc334e827976f09e4bdff26b58/Documentation/git-config.txt#L340-L355
 export GIT_CONFIG_COUNT=3
