@@ -85,7 +85,11 @@ precmd() {
 
 alias l="ls -laGh"
 alias tigs="tig status"
-alias vim="nvim"
+
+# Use neovim instead of vim if available
+if [ -x "$(command -v nvim)" ]; then
+  alias vim="nvim"
+fi
 
 # Zellij
 alias zl='zellij ls'
