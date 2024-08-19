@@ -46,7 +46,15 @@
 
 ;; Disable LSP formatting for typescript
 (setq-hook! 'typescript-tsx-mode-hook +format-with-lsp nil)
+(setq-hook! 'typescript-tsx-mode-hook +format-with :none)
 (setq-hook! 'typescript-mode-hook +format-with-lsp nil)
+(setq-hook! 'typescript-mode-hook +format-with :none)
+(setq-hook! 'javascript-mode-hook +format-with-lsp nil)
+(setq-hook! 'javascript-mode-hook +format-with :none)
+(setq +format-with-lsp nil)
+
+(add-hook 'typescript-tsx-mode-hook 'prettier-js-mode)
+(add-hook 'typescript-mode-hook 'prettier-js-mode)
 
 ;; Disable formatting for ruby completely as it requires an external tool
 (setq-hook! 'ruby-mode-hook +format-with :none)
