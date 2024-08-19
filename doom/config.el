@@ -115,3 +115,6 @@
         doom-modeline-major-mode-icon t
         doom-modeline-major-mode-color-icon t
         doom-modeline-buffer-file-name-style 'truncate-upto-root))
+
+
+(add-to-list 'auto-mode-alist '("\\.d2\\'" . d2-mode))
