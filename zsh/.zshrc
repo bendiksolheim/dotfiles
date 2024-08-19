@@ -107,6 +107,11 @@ export GPG_TTY=$(tty)
 # Use vim as editor
 export EDITOR='vim'
 
+# Use eza instead of ls if available
+if [ -x "$(command -v eza)" ]; then
+  alias l='eza -la --git'
+  alias ls='eza'
+fi
 #############
 # Functions #
 #############
