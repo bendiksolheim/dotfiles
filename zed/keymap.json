@@ -21,7 +21,8 @@
       "' j": ["workspace::ActivatePaneInDirection", "Down"],
       "' h": ["workspace::ActivatePaneInDirection", "Left"],
       "' l": ["workspace::ActivatePaneInDirection", "Right"],
-      "' d": "pane::CloseActiveItem"
+      "' d": "pane::CloseActiveItem",
+      "' f": "workspace::ToggleZoom"
     }
   },
   {
