@@ -1,0 +1,44 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor || Dock || Terminal",
+    "bindings": {
+      "' /": "pane::SplitRight",
+      "' -": "pane::SplitDown",
+      "' k": ["workspace::ActivatePaneInDirection", "Up"],
+      "' j": ["workspace::ActivatePaneInDirection", "Down"],
+      "' h": ["workspace::ActivatePaneInDirection", "Left"],
+      "' l": ["workspace::ActivatePaneInDirection", "Right"],
+      "' d": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space g b": "editor::ToggleGitBlame",
+      "space /": "workspace::NewSearch",
+      "space b p": "pane::GoBack",
+      "space b n": "pane::GoForward",
+      "cmd-k": "pane::GoBack",
+      "cmd-j": "pane::GoForward",
+      "space o p": "workspace::ToggleLeftDock",
+      "space p f": "file_finder::Toggle",
+      "n": "search::SelectNextMatch",
+      "shift-n": "search::SelectPrevMatch",
+      "alt-x": "command_palette::Toggle",
+      "space g g": ["task::Spawn", { "task_name": "magit" }]
+    }
+  }
+]
