@@ -52,7 +52,7 @@
 (setq-hook! 'ruby-mode-hook +format-with :none)
 
 ;; Key bindings
-(map! :gnm "'" #'evil-window-map)
+(map! :nveomr "'" #'evil-window-map)
 (map! :n "s-k" #'evil-jump-backward)
 (map! :n "s-j" #'evil-jump-forward)
 (map! :leader :prefix "w" "'" #'other-window)
