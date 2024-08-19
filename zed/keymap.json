@@ -36,6 +36,7 @@
       "cmd-j": "pane::GoForward",
       "space o p": "workspace::ToggleLeftDock",
       "space p f": "file_finder::Toggle",
+      "space o P": "pane::RevealInProjectPanel",
       "n": "search::SelectNextMatch",
       "shift-n": "search::SelectPrevMatch",
       "alt-x": "command_palette::Toggle",
