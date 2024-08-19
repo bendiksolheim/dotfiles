@@ -32,5 +32,8 @@
   },
   "collaboration_panel": {
     "button": false
+  },
+  "features": {
+    "inline_completion_provider": "copilot"
   }
 }
