@@ -199,3 +199,6 @@ fi
 # A good place to export them will be ~/.zshrc-custom
 # Docs: https://github.com/git/git/blob/d8d77153eafdb0fc334e827976f09e4bdff26b58/Documentation/git-config.txt#L340-L355
 export GIT_CONFIG_COUNT=3
+
+# bun completions
+[ -s "/Users/bendiksolheim/.bun/_bun" ] && source "/Users/bendiksolheim/.bun/_bun"
