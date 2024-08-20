@@ -54,5 +54,11 @@
       "alt-j": "editor::ContextMenuNext",
       "alt-k": "editor::ContextMenuPrev"
     }
+  },
+  {
+    "context": "EmptyPane",
+    "bindings": {
+      "space p f": "file_finder::Toggle"
+    }
   }
 ]
