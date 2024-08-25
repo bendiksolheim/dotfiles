@@ -21,26 +21,45 @@
       "' j": ["workspace::ActivatePaneInDirection", "Down"],
       "' h": ["workspace::ActivatePaneInDirection", "Left"],
       "' l": ["workspace::ActivatePaneInDirection", "Right"],
-      "' d": "pane::CloseActiveItem",
-      "' f": "workspace::ToggleZoom"
+      "' f": "workspace::ToggleZoom",
+      "' d": "pane::CloseAllItems"
     }
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space g b": "editor::ToggleGitBlame",
       "space /": "workspace::NewSearch",
       "space b p": "pane::GoBack",
       "space b n": "pane::GoForward",
+      "space c r": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space g b": "editor::ToggleGitBlame",
+      "space g g": ["task::Spawn", { "task_name": "magit" }],
+      "space o p": "workspace::ToggleLeftDock",
+      "space o P": "pane::RevealInProjectPanel",
+      "space p f": "file_finder::Toggle",
       "cmd-k": "pane::GoBack",
       "cmd-j": "pane::GoForward",
-      "space o p": "workspace::ToggleLeftDock",
-      "space p f": "file_finder::Toggle",
-      "space o P": "pane::RevealInProjectPanel",
       "n": "search::SelectNextMatch",
       "shift-n": "search::SelectPrevMatch",
-      "alt-x": "command_palette::Toggle",
-      "space g g": ["task::Spawn", { "task_name": "magit" }]
+      "alt-x": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "c d": "project_panel::NewDirectory",
+      "c f": "project_panel::NewFile",
+      "d": "project_panel::Delete",
+      "R": "project_panel::Rename",
+      "y f": "project_panel::Copy"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "alt-j": "editor::ContextMenuNext",
+      "alt-k": "editor::ContextMenuPrev"
     }
   }
 ]

@@ -8,7 +8,12 @@
 // command palette
 {
   "vim_mode": true,
-  "ui_font_size": 15,
+  "buffer_font_family": "Iosevka Fixed",
+  "ui_font_family": "Iosevka Aile",
+  "ui_font_features": {
+    "calt": true
+  },
+  "ui_font_size": 14,
   "buffer_font_size": 13,
   "theme": "Nord",
   "cursor_blink": false,
@@ -35,5 +40,23 @@
   },
   "features": {
     "inline_completion_provider": "copilot"
+  },
+  "languages": {
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path"]
+        }
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path"]
+        }
+      }
+    }
   }
 }
