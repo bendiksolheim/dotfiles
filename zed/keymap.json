@@ -1,17 +1,4 @@
-// Zed keymap
-//
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
 [
-  {
-    "context": "Workspace",
-    "bindings": {
-      // "shift shift": "file_finder::Toggle"
-    }
-  },
   {
     "context": "Editor || Dock || Terminal",
     "bindings": {
@@ -31,10 +18,12 @@
       "space /": "workspace::NewSearch",
       "space b p": "pane::GoBack",
       "space b n": "pane::GoForward",
-      "space c r": "editor::Rename",
       "space c a": "editor::ToggleCodeActions",
+      "space c e": ["task::Spawn", { "task_name": "Spawn REPL" }],
+      "space c r": "editor::Rename",
       "space g b": "editor::ToggleGitBlame",
       "space g g": ["task::Spawn", { "task_name": "magit" }],
+      "space g o": ["task::Spawn", { "task_name": "Open on Github" }],
       "space o p": "workspace::ToggleLeftDock",
       "space o P": "pane::RevealInProjectPanel",
       "space p f": "file_finder::Toggle",
