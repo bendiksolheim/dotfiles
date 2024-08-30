@@ -112,6 +112,10 @@ if [ -x "$(command -v eza)" ]; then
   alias l='eza -la --git'
   alias ls='eza'
 fi
+
+if [ -x "$(command -v emacs)" ]; then
+    alias magit="emacs -nw --eval '(magit-status)'"
+fi
 #############
 # Functions #
 #############
