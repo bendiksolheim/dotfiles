@@ -20,5 +20,22 @@
     "description": "Spawns a REPL for your current active programming language",
     "reveal": "always",
     "hide": "on_success"
+  },
+  {
+    "label": "Search project",
+    "description": "Searches project with fzf and rg",
+    "command": "cd $ZED_WORKTREE_ROOT && fzf --reverse --ansi --disabled --bind \"start:reload:$RG {q}\" --bind \"change:reload:$RG {q}\" --bind \"enter:become(zed {1}:{2})\"",
+    "env": {
+      "RG": "rg --column --line-number --no-heading --color=always --smart-case"
+    },
+    "reveal": "always",
+    "hide": "on_success"
+  },
+  {
+    "label": "Go to file",
+    "description": "Uses fuzzy search with fd and fzf to open a file",
+    "command": "cd $ZED_WORKTREE_ROOT && fd --type f --strip-cwd-prefix | fzf --reverse --bind \"enter:become(zed {1})\"",
+    "reveal": "always",
+    "hide": "on_success"
   }
 ]
