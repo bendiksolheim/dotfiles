@@ -116,6 +116,44 @@ fi
 if [ -x "$(command -v emacs)" ]; then
     alias magit="emacs -nw --eval '(magit-status)'"
 fi
+
+###################
+# Path management #
+###################
+
+path=("/usr/local/opt/findutils/libexec/gnubin" $path)
+
+# Emacs
+if [ -d "/Applications/Emacs.app/Contents/MacOS/bin" ]; then
+    path=("/Applications/Emacs.app/Contents/MacOS/bin" $path)
+fi
+
+# Load correct Node/NPM version if fnm is installed
+if [ -x "$(command -v fnm)" ]; then
+    eval "$(fnm env --use-on-cd)"
+fi
+
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+    path=("$HOME/.cargo/bin/" $path)
+fi
+
+##############
+# Other vars #
+##############
+
+export LANG=no_NO.UTF-8
+
+# Swift toolchain
+export SOURCEKIT_TOOLCHAIN_PATH="/Library/Developer/Toolchains/swift-latest.xctoolchain"
+
+# Maven
+export MAVEN_OPTS="-Xmx6g"
+export M2_REPO="$HOME/.m2/repository"
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 #############
 # Functions #
 #############
@@ -191,11 +229,6 @@ add-zsh-hook chpwd _jdk_autoload_hook
 # Source custom config which for some reason cannot be commited to git
 if [ -f ~/.zshrc-custom ]; then
     source ~/.zshrc-custom
-fi
-
-# Load correct Node/NPM version if fnm is installed
-if [ -x "$(command -v fnm)" ]; then
-    eval "$(fnm env --use-on-cd)"
 fi
 
 # Force git to check for three config key env vars
