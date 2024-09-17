@@ -53,7 +53,7 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path"]
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
         }
       }
     },
@@ -61,7 +61,14 @@
       "formatter": {
         "external": {
           "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path"]
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    },
+    "Swift": {
+      "formatter": {
+        "external": {
+          "command": "swift-format"
         }
       }
     }
