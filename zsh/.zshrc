@@ -1,6 +1,6 @@
 if [[ $TERM == "dumb" ]]
 then
-    unsetopt zle 
+    unsetopt zle
     unsetopt prompt_cr
     unsetopt prompt_subst
     if whence -w precmd >/dev/null; then
@@ -10,6 +10,7 @@ then
         unfunction preexec
     fi
     PS1='$ '
+    return
 fi
 
 ###############
@@ -18,12 +19,30 @@ fi
 
 autoload -U compinit
 compinit -c
+if [ -s ~/.fzf-tab/fzf-tab.plugin.zsh ]; then
+    source ~/.fzf-tab/fzf-tab.plugin.zsh
+fi
 
-# Arrow key menu for completions
-zstyle ':completion:*' menu select
+# Disable sort when completing git checkout
+zstyle ':completion:*:git-checkout:*' sort false
+
+# Set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+
+# Set list-colors to enable filename colorization
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Forze zsh not to show completion menu, which allows fzf-tab to capture unambiguous prefix
+zstyle ':completion:*' menu no
+
+# Preview directories with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# Switch group using < and >
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # Case-insensitive (all),partial-word and the substring completion
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 #################
 # Shell options #
@@ -33,6 +52,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 export CLICOLORS=1
 
 setopt AUTO_CD
+
+# Show hidden files and folders in completions
+setopt globdots
 
 # Restore ctrl+r, ctrl+a and so on
 bindkey -e
@@ -158,9 +180,27 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Functions #
 #############
 
+# Jump directly to a project in ~/dev, or list projects
+d() {
+    local DEV_DIR=~/dev
+    local DIR=$1
+    if [[ -n "$DIR" && -d "$DEV_DIR/$DIR" ]]; then
+        cd "$DEV_DIR/$DIR" || exit
+    else
+        cd "$(find $DEV_DIR -type d -maxdepth 1 | fzf)" || exit
+    fi
+}
+
+
 # Find processes using a port
 function port() {
     lsof -i :"$1"
+}
+
+function npmr() {
+    PKG_JSON=$(pwd)/package.json
+    SCRIPT=$(jq -r '.scripts | keys[]' $PKG_JSON | sort | fzf --height=40% --preview "jq -r '.scripts.\"{}\"' package.json")
+    npm run $SCRIPT
 }
 
 ###########################
@@ -230,4 +270,6 @@ fi
 export GIT_CONFIG_COUNT=3
 
 # bun completions
-[ -s "/Users/bendiksolheim/.bun/_bun" ] && source "/Users/bendiksolheim/.bun/_bun"
+if [ -s ~/.bun/_bun ]; then
+    source "~/.bun/_bun"
+fi
