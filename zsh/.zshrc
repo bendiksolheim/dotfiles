@@ -163,14 +163,6 @@ function port() {
     lsof -i :"$1"
 }
 
-# Start web server on given port
-function webserver() {
-    echo "a ${1}"
-    PORT="${1:-3000}"
-    echo "Starting webserver on port ${PORT}"
-    python -m SimpleHTTPServer "$PORT"
-}
-
 ###########################
 # Java Version management #
 ###########################
