@@ -24,12 +24,12 @@
   {
     "label": "Search project",
     "description": "Searches project with fzf and rg",
-    "command": "cd $ZED_WORKTREE_ROOT && fzf --reverse --ansi --disabled --bind \"start:reload:$RG {q}\" --bind \"change:reload:$RG {q}\" --bind \"enter:become(zed {1}:{2})\"",
+    "command": "cd $ZED_WORKTREE_ROOT && fzf --reverse --ansi --disabled --delimiter : --bind \"start:reload:$RG {q}\" --bind \"change:reload:$RG {q}\" --bind \"enter:become(zed {1}:{2})\"",
     "env": {
       "RG": "rg --column --line-number --no-heading --color=always --smart-case"
     },
     "reveal": "always",
-    "hide": "on_success"
+    "hide": "always"
   },
   {
     "label": "Go to file",
