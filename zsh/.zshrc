@@ -273,3 +273,7 @@ export GIT_CONFIG_COUNT=3
 if [ -s ~/.bun/_bun ]; then
     source "~/.bun/_bun"
 fi
+
+if [ -x "$(command -v mise)" ]; then
+    eval "$(mise activate zsh)"
+fi
