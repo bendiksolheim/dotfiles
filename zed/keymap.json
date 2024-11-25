@@ -1,6 +1,7 @@
 [
   {
-    "context": "Editor || Dock || Terminal",
+    "use_layout_keys": true,
+    "context": "Editor || Dock || Terminal",
     "bindings": {
       "' /": "pane::SplitRight",
       "' -": "pane::SplitDown",
@@ -13,9 +14,9 @@
     }
   },
   {
+    "use_layout_keys": true,
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      // "space /": "workspace::NewSearch",
       "space /": ["task::Spawn", { "task_name": "Search project" }],
       "space b p": "pane::GoBack",
       "space b n": "pane::GoForward",
@@ -35,10 +36,12 @@
       "g d": "editor::GoToDefinition",
       "n": "search::SelectNextMatch",
       "shift-n": "search::SelectPrevMatch",
-      "alt-x": "command_palette::Toggle"
+      "alt-x": "command_palette::Toggle",
+      "cmd-/": "editor::ToggleComments"
     }
   },
   {
+    "use_layout_keys": true,
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "c d": "project_panel::NewDirectory",
