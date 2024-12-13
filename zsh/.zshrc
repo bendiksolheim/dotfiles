@@ -136,7 +136,7 @@ if [ -x "$(command -v eza)" ]; then
 fi
 
 if [ -x "$(command -v emacs)" ]; then
-    alias magit="emacs -nw --eval '(magit-status)'"
+    alias magit="emacs -nw -f menu-bar-mode --eval '(magit-status)'"
 fi
 
 ###################
