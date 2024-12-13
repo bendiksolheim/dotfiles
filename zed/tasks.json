@@ -36,6 +36,6 @@
     "description": "Uses fuzzy search with fd and fzf to open a file",
     "command": "cd $ZED_WORKTREE_ROOT && fd --type f --strip-cwd-prefix | fzf --reverse --bind \"enter:become(zed {1})\"",
     "reveal": "always",
-    "hide": "on_success"
+    "hide": "always"
   }
 ]
