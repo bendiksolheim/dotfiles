@@ -1,6 +1,6 @@
 # Dotfiles
 
-A collection of some of my dotfiles
+Synced dotfiles
 
 ## Clone to new machine
 
