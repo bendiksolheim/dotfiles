@@ -338,7 +338,7 @@ theme "nord"
 
 // The folder in which Zellij will look for layouts
 //
-layout_dir "/Users/bendik/dotfiles/zellij/layouts"
+layout_dir "/Users/bendik/.config/zellij/layouts"
 
 // The folder in which Zellij will look for themes
 //
