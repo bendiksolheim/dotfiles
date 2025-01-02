@@ -1,0 +1,41 @@
+// Static tasks configuration.
+//
+// Example:
+[
+  {
+    "label": "magit",
+    "command": "emacs -nw --eval '(magit-status)'"
+  },
+  {
+    "label": "Open on Github",
+    "command": "sh ~/.config/zed/scripts/open-github-repo.sh",
+    "description": "Opens Github for the current git repository",
+    "reveal": "never",
+    "hide": "always",
+    "shell": "system"
+  },
+  {
+    "label": "Spawn REPL",
+    "command": "sh ~/.config/zed/scripts/spawn-repl.sh",
+    "description": "Spawns a REPL for your current active programming language",
+    "reveal": "always",
+    "hide": "on_success"
+  },
+  {
+    "label": "Search project",
+    "description": "Searches project with fzf and rg",
+    "command": "cd $ZED_WORKTREE_ROOT && fzf --reverse --ansi --disabled --delimiter : --bind \"start:reload:$RG {q}\" --bind \"change:reload:$RG {q}\" --bind \"enter:become(zed {1}:{2})\"",
+    "env": {
+      "RG": "rg --column --line-number --no-heading --color=always --smart-case"
+    },
+    "reveal": "always",
+    "hide": "always"
+  },
+  {
+    "label": "Go to file",
+    "description": "Uses fuzzy search with fd and fzf to open a file",
+    "command": "cd $ZED_WORKTREE_ROOT && fd --type f --strip-cwd-prefix | fzf --reverse --bind \"enter:become(zed {1})\"",
+    "reveal": "always",
+    "hide": "always"
+  }
+]

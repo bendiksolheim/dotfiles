@@ -1,0 +1,40 @@
+set line-graphics = utf-8
+set vertical-split = yes
+
+set diff-view = \
+    line-number:yes,interval=1,width=5
+
+set grep-view = \
+    line-number:yes,interval=1
+
+set main-view = \
+    line-number:yes,interval=5,width=5 \
+    date:default \
+    author:full,width=12 \
+    id:yes \
+    commit-title:yes,graph=yes,refs=yes,overflow=yes
+
+set stash-view = \
+    line-number:yes,interval=5,width=5 \
+    date:default \
+    author:full,width=12 \
+    id:yes \
+    commit-title:yes,graph=yes,refs=yes,overflow=yes
+
+set status-view = \
+    line-number:yes,interval=5,width=5 \
+    status:long \
+    file-name:auto
+
+set blame-view = \
+    line-number:yes,interval=5,width=5 \
+    date:default \
+    author:full,width=12 \
+    id:yes \
+    text:yes
+
+set tab-size = 4
+set refresh-mode = periodic
+set refresh-interval = 5
+
+bind refs ! !?git branch -d %(branch)

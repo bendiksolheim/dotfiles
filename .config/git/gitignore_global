@@ -1,0 +1,20 @@
+# Mac folder index file
+.DS_Store
+
+# Projectile project file
+.projectile
+
+# Tern port file
+.tern-port
+.tern-project
+
+# Restclient file
+restclient
+
+TAGS
+
+# jEnv version file
+.java-version
+
+# Customer
+local-format.sh

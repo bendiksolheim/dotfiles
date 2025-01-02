@@ -1,0 +1,9 @@
+set relativenumber
+set incsearch
+set ignorecase
+set showmode
+set surrouce
+
+nnoremap <Space> :action leader<CR>
+vnoremap <Space> :action leader<CR>
+nnoremap ' :action splits<CR>
