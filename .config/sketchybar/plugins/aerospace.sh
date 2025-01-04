@@ -10,6 +10,7 @@ if [ -z "${FOCUSED_WORKSPACE}" ]; then
 fi
 
 # Map of app name to icon
+# Use https://www.nerdfonts.com/cheat-sheet or SF Symbols for icons
 declare -A apps
 apps=(
     [Safari]="􀎭"
@@ -27,6 +28,8 @@ apps=(
     [Microsoft Outlook]="􀈣"
     [OrbStack]="󰡨"
     [Notion]=""
+    [Bambu Studio]=""
+    [TextEdit]="􀌀"
 )
 
 # Create list of app icons in requested workspace
