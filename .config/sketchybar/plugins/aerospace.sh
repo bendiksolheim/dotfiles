@@ -16,12 +16,17 @@ apps=(
     [FreeTube]="󰗃"
     [Rio]="􀪏"
     [Zed]=""
+    [IntelliJ IDEA]=""
     [Slack]="󰒱"
     [Firefox Developer Edition]="󰈹"
     [1Password]="􀠩"
     [Messages]="􀌥"
     [SF Symbols]="􀆔"
     [System Settings]="􀍟"
+    [Godspeed]="􀋲"
+    [Microsoft Outlook]="􀈣"
+    [OrbStack]="󰡨"
+    [Notion]=""
 )
 
 # Create list of app icons in requested workspace
