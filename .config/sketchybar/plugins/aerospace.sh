@@ -30,6 +30,7 @@ apps=(
     [Notion]=""
     [Bambu Studio]=""
     [TextEdit]="􀌀"
+    [Azure Data Studio]=""
 )
 
 # Create list of app icons in requested workspace
