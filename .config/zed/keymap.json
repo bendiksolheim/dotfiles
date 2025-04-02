@@ -1,47 +1,44 @@
 [
   {
-    "use_layout_keys": true,
     "context": "Editor || Dock || Terminal",
     "bindings": {
       "' /": "pane::SplitRight",
       "' -": "pane::SplitDown",
-      "' k": ["workspace::ActivatePaneInDirection", "Up"],
-      "' j": ["workspace::ActivatePaneInDirection", "Down"],
-      "' h": ["workspace::ActivatePaneInDirection", "Left"],
-      "' l": ["workspace::ActivatePaneInDirection", "Right"],
+      "' k": "workspace::ActivatePaneUp",
+      "' j": "workspace::ActivatePaneDown",
+      "' h": "workspace::ActivatePaneLeft",
+      "' l": "workspace::ActivatePaneRight",
       "' f": "workspace::ToggleZoom",
       "' d": "pane::CloseAllItems"
     }
   },
   {
-    "use_layout_keys": true,
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space /": ["task::Spawn", { "task_name": "Search project" }],
+      "space /": ["task::Spawn", { "task_name": "Search", "reveal_target": "center" }],
       "space b p": "pane::GoBack",
       "space b n": "pane::GoForward",
       "space c a": "editor::ToggleCodeActions",
       "space c e": ["task::Spawn", { "task_name": "Spawn REPL" }],
       "space c r": "editor::Rename",
-      "space g b": "editor::ToggleGitBlame",
+      "space g b": "git::Blame",
       "space g g": ["task::Spawn", { "task_name": "magit" }],
       "space g o": ["task::Spawn", { "task_name": "Open on Github" }],
       "space o p": "workspace::ToggleLeftDock",
       "space o P": "pane::RevealInProjectPanel",
       // "space p f": "file_finder::Toggle",
-      "space p f": ["task::Spawn", { "task_name": "Go to file" }],
+      "space p f": ["task::Spawn", { "task_name": "File finder", "reveal_target": "center" }],
       "space t": "workspace::NewTerminal",
       "cmd-k": "pane::GoBack",
       "cmd-j": "pane::GoForward",
       "g d": "editor::GoToDefinition",
       "n": "search::SelectNextMatch",
-      "shift-n": "search::SelectPrevMatch",
+      "shift-n": "search::SelectPreviousMatch",
       "alt-x": "command_palette::Toggle",
       "cmd-/": "editor::ToggleComments"
     }
   },
   {
-    "use_layout_keys": true,
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "c d": "project_panel::NewDirectory",
@@ -55,13 +52,20 @@
     "context": "Editor && (showing_code_actions || showing_completions)",
     "bindings": {
       "alt-j": "editor::ContextMenuNext",
-      "alt-k": "editor::ContextMenuPrev"
+      "alt-k": "editor::ContextMenuPrevious"
     }
   },
   {
     "context": "EmptyPane",
     "bindings": {
       "space p f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "alt-j": ["workspace::SendKeystrokes", "down"],
+      "alt-k": ["workspace::SendKeystrokes", "up"]
     }
   }
 ]

@@ -37,5 +37,19 @@
     "command": "cd $ZED_WORKTREE_ROOT && fd --type f --strip-cwd-prefix | fzf --reverse --bind \"enter:become(zed {1})\"",
     "reveal": "always",
     "hide": "always"
+  },
+  {
+    "label": "File finder",
+    "command": "zed \"$(tv files)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
+  },
+  {
+    "label": "Search",
+    "command": "zed \"$(tv text)\"",
+    "hide": "always",
+    "allow_concurrent_runs": true,
+    "use_new_terminal": true
   }
 ]
