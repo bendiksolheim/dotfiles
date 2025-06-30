@@ -22,6 +22,11 @@
   "ui_font_features": {
     "calt": true
   },
+  "title_bar": {
+    "show_branch_name": false,
+    "show_project_items": false,
+    "show_onboarding_banner": false
+  },
   "ui_font_size": 14,
   "buffer_font_size": 12,
   "theme": "Catppuccin Macchiato",
