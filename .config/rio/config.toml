@@ -126,13 +126,13 @@ confirm-before-quit = false
 # • decorations - Set window decorations, options: "Enabled", "Disabled", "Transparent", "Buttonless"
 #
 # Example:
-# [window]
+[window]
 # width = 600
 # height = 400
 # mode = "windowed"
-# opacity = 1.0
+opacity = 0.9
 # blur = false
-# decorations = "enabled"
+decorations = "Transparent"
 
 # Renderer
 #
