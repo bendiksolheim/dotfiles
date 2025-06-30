@@ -16,8 +16,8 @@ bar_appearance=(
   blur_radius=50
   corner_radius=5
   y_offset=6
-  padding_left=5
-  padding_right=5
+  padding_left=20
+  padding_right=20
   color=$BAR_COLOR
 )
 sketchybar --bar "${bar_appearance[@]}"
@@ -25,9 +25,9 @@ sketchybar --bar "${bar_appearance[@]}"
 ##### DEFAULT VALUES #####
 
 default=(
-  background.height=27
+  background.height=37
   background.color=0xff181926
-  background.corner_radius=8
+  background.corner_radius=10
   padding_left=3
   padding_right=3
   icon.font="Hack Nerd Font:Normal:15.0"
@@ -61,7 +61,7 @@ done
 
 spaces_group=(
   background.color=0x88494d64
-  background.corner_radius=5
+  background.corner_radius=10
   background.height=24
   background.drawing=on
 )
