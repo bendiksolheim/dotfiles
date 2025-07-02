@@ -3,8 +3,10 @@
 // Example:
 [
   {
-    "label": "magit",
-    "command": "emacs -nw --eval '(magit-status)'"
+    "label": "git",
+    "command": "gitu",
+    "description": "Spawns gitu in a terminal",
+    "hide": "always"
   },
   {
     "label": "Open on Github",

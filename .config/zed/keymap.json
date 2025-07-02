@@ -22,7 +22,7 @@
       "space c e": ["task::Spawn", { "task_name": "Spawn REPL" }],
       "space c r": "editor::Rename",
       "space g b": "git::Blame",
-      "space g g": ["task::Spawn", { "task_name": "magit" }],
+      "space g g": ["task::Spawn", { "task_name": "git", "reveal_target": "center" }],
       "space g o": ["task::Spawn", { "task_name": "Open on Github" }],
       "space o p": "workspace::ToggleLeftDock",
       "space o P": "pane::RevealInProjectPanel",
