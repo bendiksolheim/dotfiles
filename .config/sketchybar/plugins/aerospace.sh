@@ -20,6 +20,7 @@ apps=(
     [IntelliJ IDEA]=""
     [Slack]="󰒱"
     [Firefox Developer Edition]="󰈹"
+    [Firefox]="󰈹"
     [1Password]="􀠩"
     [Messages]="􀌥"
     [SF Symbols]="􀆔"
@@ -31,6 +32,7 @@ apps=(
     [Bambu Studio]=""
     [TextEdit]="􀌀"
     [Azure Data Studio]=""
+    [Preview]=""
 )
 
 # Create list of app icons in requested workspace
