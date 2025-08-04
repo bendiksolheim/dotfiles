@@ -2,8 +2,10 @@
 
 SSID="$(ipconfig getsummary en0 | awk -F ' SSID : ' '/ SSID : / {print $2}')"
 
-if [ "$SSID" = "" ]; then
+if [ "$SSID" == "" ]; then
   sketchybar --set $NAME label="" icon=󰤯
+elif [ "$SSID" = "<redacted>" ]; then
+  sketchybar --set $NAME label="" icon=󰖩
 else
-  sketchybar --set $NAME label="$SSID" icon=󰤨
+  sketchybar --set $NAME label="$SSID" icon=󰖩
 fi

@@ -2,19 +2,15 @@
 
 # https://catppuccin.com/palette (Macchiato)
 
+source "$CONFIG_DIR/themes/gruvbox-dark.sh"
+
 # Color Palette
 TRANSPARENT=0x00000000
 
-TEXT=0xffcad3f5
-RED=0xffed8796
-GREEN=0xffa6da95
-BLUE=0xff8aadf4
-YELLOW=0xffeed49f
-PEACH=0xfff5a97f
-MUAVE=0xffc6a0f6
-
 # General bar colors
-BAR_COLOR=0x00ff0000 #$GREY # Grey bar
-ICON_COLOR=$TEXT # Color of all icons
-LABEL_COLOR=$TEXT # Color of all labels
-ACTIVE_COLOR=$RED
+BAR_BACKGROUND=$TRANSPARENT
+BAR_COLOR=$BG
+BORDER_COLOR=$BLUE_2
+ICON_COLOR=$FG
+LABEL_COLOR=$FG
+ACTIVE_COLOR=$ORANGE_1
