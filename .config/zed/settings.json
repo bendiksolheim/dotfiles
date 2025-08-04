@@ -9,12 +9,11 @@
 {
   "agent": {
     "always_allow_tool_actions": true,
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
   },
   "vim_mode": true,
   "buffer_font_family": "Iosevka Fixed",
@@ -29,7 +28,7 @@
   },
   "ui_font_size": 14,
   "buffer_font_size": 12,
-  "theme": "Catppuccin Macchiato",
+  "theme": "Gruvbox Dark",
   "cursor_blink": false,
   "relative_line_numbers": true,
   "vim": {
