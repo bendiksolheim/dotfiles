@@ -19,7 +19,7 @@
 # (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
 #
 # Example:
-theme = "catppucin-macchiato.toml"
+theme = "gruvbox-dark.toml"
 
 # Padding-x
 #
