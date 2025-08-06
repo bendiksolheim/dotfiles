@@ -73,7 +73,7 @@ inner.horizontal = 20
 inner.vertical = 20
 outer.left = 20
 outer.bottom = 20
-outer.top = 20
+outer.top = [{ monitor.main = 20 }, { monitor.secondary = 60 }, 20]
 outer.right = 20
 
 # 'main' binding mode declaration
@@ -115,8 +115,8 @@ ctrl-shift-f = 'fullscreen'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
 ctrl-h = 'focus left'
-ctrl-j = 'focus down'
-ctrl-k = 'focus up'
+ctrl-j = 'focus down --boundaries all-monitors-outer-frame'
+ctrl-k = 'focus up --boundaries all-monitors-outer-frame'
 ctrl-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
