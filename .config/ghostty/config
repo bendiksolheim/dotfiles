@@ -3,3 +3,4 @@ window-padding-x = 10
 macos-titlebar-style = hidden
 cursor-style = block
 shell-integration-features = no-cursor
+background-opacity = 0.9
