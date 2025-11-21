@@ -167,6 +167,10 @@ if [ -d "$HOME/.cargo" ]; then
     path=("$HOME/.cargo/bin/" $path)
 fi
 
+if [ -d "$HOME/.local/bin" ]; then
+    path=("$HOME/.local/bin" $path)
+fi
+
 ##############
 # Other vars #
 ##############
