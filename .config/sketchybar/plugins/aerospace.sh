@@ -13,9 +13,12 @@ fi
 # Use https://www.nerdfonts.com/cheat-sheet or SF Symbols for icons
 declare -A apps
 apps=(
+    [Reminders]=""
+    [Claude]="󱜙"
     [Safari]="􀎭"
     [FreeTube]="󰗃"
     [Rio]="􀪏"
+    [Ghostty]="􀪏"
     [Zed]=""
     [IntelliJ IDEA]=""
     [Slack]="󰒱"
