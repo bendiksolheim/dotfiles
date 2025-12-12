@@ -4,3 +4,4 @@ macos-titlebar-style = hidden
 cursor-style = block
 shell-integration-features = no-cursor
 background-opacity = 0.9
+keybind = shift+enter=text:\x1b\r
