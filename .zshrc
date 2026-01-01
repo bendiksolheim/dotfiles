@@ -139,12 +139,6 @@ if [ -x "$(command -v nvim)" ]; then
   alias vim="nvim"
 fi
 
-# Zellij
-alias zl='zellij ls'
-alias zn='zellij -s'
-alias za='zellij a'
-alias zk='zellij delete-session'
-
 # Docker
 alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}\t{{.Ports}}"'
 alias docker-start-exited="docker ps -f status=exited | awk '{ if (NR!=1) { print $1 }}' | xargs docker start"
