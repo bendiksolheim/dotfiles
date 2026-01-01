@@ -16,6 +16,7 @@ apps=(
     [Reminders]=""
     [Claude]="󱜙"
     [Safari]="􀎭"
+    [Orion]="􀎭"
     [FreeTube]="󰗃"
     [Rio]="􀪏"
     [Ghostty]="􀪏"
@@ -36,6 +37,7 @@ apps=(
     [TextEdit]="􀌀"
     [Azure Data Studio]=""
     [Preview]=""
+    [Boosteroid]="󱎓"
 )
 
 # Create list of app icons in requested workspace
