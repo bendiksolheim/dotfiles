@@ -30,10 +30,9 @@
   "buffer_font_size": 12,
   "theme": "Gruvbox Dark",
   "cursor_blink": false,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "vim": {
-    "use_system_clipboard": "always",
-    "use_multiline_find": true
+    "use_system_clipboard": "always"
   },
   "tab_bar": {
     "show": false
