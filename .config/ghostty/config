@@ -5,3 +5,5 @@ cursor-style = block
 shell-integration-features = no-cursor
 background-opacity = 0.9
 keybind = shift+enter=text:\x1b\r
+font-family = Hasklug Nerd Font Mono
+shell-integration-features = ssh-terminfo
