@@ -25,10 +25,29 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ###############
 
 autoload -U compinit
-compinit -c
-if [ -s ~/.fzf-tab/fzf-tab.plugin.zsh ]; then
-    source ~/.fzf-tab/fzf-tab.plugin.zsh
-fi
+compinit
+
+zstyle ':completion:*' completer _extensions _complete _approximate
+
+# Using cache speeds up some completion commands
+zstyle ':completion:*' use-cache on
+
+# Shows a menu on completion, with highlighted value
+# select - highlights selected value
+# search - enables fuzzy search in possible values
+zstyle ':completion:*' menu select search
+
+# Group "correct" items with green color
+zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+
+# Group "corrections with yellow color
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+
+# Group different type matches together
+zstyle ':completion:*' group-name ''
+
+# Show file listings as "ls -l"
+zstyle ':completion:*' file-list all
 
 # Disable sort when completing git checkout
 zstyle ':completion:*:git-checkout:*' sort false
@@ -40,13 +59,13 @@ zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # Forze zsh not to show completion menu, which allows fzf-tab to capture unambiguous prefix
-zstyle ':completion:*' menu no
+#zstyle ':completion:*' menu no
 
 # Preview directories with eza when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+#zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
 # Switch group using < and >
-zstyle ':fzf-tab:*' switch-group '<' '>'
+#zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # Case-insensitive (all),partial-word and the substring completion
 #zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
