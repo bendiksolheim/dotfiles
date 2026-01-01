@@ -15,10 +15,12 @@ BORDER_RADIUS=$(($BAR_HEIGHT / 2))
 bar_appearance=(
   position=top
   height=$BAR_HEIGHT
-  blur_radius=0
-  y_offset=6
-  padding_left=20
-  padding_right=20
+  blur_radius=30
+  corner_radius=3
+  y_offset=8
+  padding_left=0
+  padding_right=0
+  margin=20
   color=$BAR_BACKGROUND
 )
 sketchybar --bar "${bar_appearance[@]}"
@@ -27,7 +29,6 @@ sketchybar --bar "${bar_appearance[@]}"
 
 default=(
   background.height=$BAR_HEIGHT
-  background.corner_radius=$BORDER_RADIUS
   icon.font="Hack Nerd Font:Normal:15.0"
   icon.color=0xffffffff
   label.font="Hack Nerd Font:Normal:14.0"
@@ -52,10 +53,8 @@ for sid in $(aerospace list-workspaces --all); do
 done
 
 spaces_group=(
-  background.color=$BAR_COLOR
   background.drawing=on
   background.border_width=2
-  background.border_color=$BORDER_COLOR
 )
 
 sketchybar --add bracket spaces '/space\..*/' \
@@ -79,10 +78,7 @@ sketchybar --add item  clock right \
                             background.padding_left=10
 
 right_group=(
-  background.color=$BAR_COLOR
   background.drawing=on
-  background.border_width=2
-  background.border_color=$BORDER_COLOR
 )
 
 sketchybar --add bracket right_group clock volume battery wifi \
