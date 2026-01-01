@@ -87,7 +87,7 @@ setopt HIST_VERIFY
 ##########
 
 # Left prompt show current dir and color coded return status
-PROMPT='%F{240}%1~%f %(?.%F{green}λ%f.%F{red}λ%f) '
+PROMPT='%F{gray}%1~%f %(?.%F{green}λ%f.%F{red}λ%f) '
 
 # Right prompt show git info
 setopt prompt_subst
