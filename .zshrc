@@ -228,6 +228,20 @@ function npmr() {
     npm run $SCRIPT
 }
 
+#############
+# Safehouse #
+#############
+#
+SAFEHOUSE_APPEND_PROFILE="$HOME/.config/safehouse/local-overrides.sb"
+
+safe() { safehouse --add-dirs-ro=~/dev --append-profile="$SAFEHOUSE_APPEND_PROFILE" "$@"; }
+safeenv() { safe --env "$@"; }
+safekeys() { safe --env-pass=OPENAI_API_KEY,ANTHROPIC_API_KEY "$@"; }
+#claude()   { safe claude --dangerously-skip-permissions "$@"; }
+#opencode() { OPENCODE_PERMISSION='{"*":"allow"}' safeenv opencode "$@"; }
+claude()   { safe claude "$@"; }
+opencode() { safeenv opencode "$@"; }
+
 ###########################
 # Java Version management #
 ###########################
