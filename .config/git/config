@@ -1,3 +1,8 @@
+[user]
+    name = Bendik Solheim
+    email = hello@bendik.dev
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEm3NmueGwQcl5B81QHvuPmgum+dcReDbJ0erXGy6jNA
+
 [push]
     default = simple
 
