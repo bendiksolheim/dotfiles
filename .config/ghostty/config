@@ -7,3 +7,4 @@ background-opacity = 0.9
 keybind = shift+enter=text:\x1b\r
 font-family = Hasklug Nerd Font Mono
 shell-integration-features = ssh-terminfo
+confirm-close-surface=false
