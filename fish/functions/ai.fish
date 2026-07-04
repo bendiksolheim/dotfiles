@@ -1,6 +1,11 @@
 function ai --description 'Buld and run AI containers'
+    if not type -q container
+        echo "Error: 'container' command not found. Install it first."
+        return 1
+    end
+    
     if test (count $argv) -eq 0
-        echo "Usage: ai <build|run> <path>"
+        __print_usage
         return 1
     end
 
@@ -21,16 +26,18 @@ function ai --description 'Buld and run AI containers'
             end
 
             set -l build_context (dirname $containerfile)
+            set -l image_name (path basename $containerfile)
             echo "Building image from $containerfile (context: $build_context)"
             container build\
-                --tag pi:local\
+                --tag "aicontainer-$image_name:local"\
                 --file $containerfile $build_context
 
         case "run"
-            set -l folder $argv[2]
+            set -l harness $argv[2]
+            set -l folder $argv[3]
 
             if test -z "$folder"
-                echo "Usage: ai run <folder>"
+                echo "Usage: ai run <harness> <folder>"
                 return 1
             end
 
@@ -45,15 +52,35 @@ function ai --description 'Buld and run AI containers'
                 --rm\
                 --interactive\
                 --tty\
-                --volume "~/.pi/agent/auth.json:/home/pi/.pi/agent/auth.json"\
                 --volume "$abs_folder:/workspace"\
                 --workdir /workspace\
                 --publish "38095:38095"\
-                pi:local
+                "aicontainer-$harness:local"
+                #--volume "~/.pi/agent/auth.json:/home/pi/.pi/agent/auth.json"\
 
+        case "list"
+            __list_ai_images
+
+        case help --help -h ""
+            __print_usage
         case '*'
-            echo "Unknown subcommand: $subcmd"
-            echo "Usage: ai <build|run> <path>"
+            echo "Unknown subcommand: $subcmd" >&2
+            __print_usage
             return 1
     end
+end
+
+function __print_usage
+    echo "Usage: ai <command> [arguments]
+
+Commands:
+build [containerfile]       Builds a new version of the containerfile
+run [harness] [path]        Starts a new AI in the provided path
+help                        Show this help text"
+end
+
+function __list_ai_images
+    container image list -q\
+        | string match "aicontainer-*"\
+        | string replace -r "^aicontainer-(.*):.*\$" '$1'
 end
