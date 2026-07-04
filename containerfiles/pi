@@ -1,0 +1,38 @@
+# Pi Coding Agent inside an Apple container.
+#
+# Minimal Node image; pi installed globally, tools for the
+# bash tool-call (find, grep, rg) available, /workspace as the
+# mount target for the respective project.
+
+FROM node:26-bookworm-slim
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+      git \
+      ripgrep \
+      ca-certificates \
+      iproute2 \
+      fd-find \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g pnpm@latest-11
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME/bin:$PATH"
+
+# protobufjs and @google/genai needs to run a few scripts
+RUN pnpm approve-builds protobufjs @google/genai
+
+# Install pi itself
+RUN pnpm add -g @earendil-works/pi-coding-agent
+
+RUN useradd --create-home --shell /bin/bash pi
+
+USER pi
+WORKDIR /workspace
+
+# Install pi packages
+RUN pi install npm:@mrclrchtr/supi-context
+
+# pi reads ~/.pi/agent/* at runtime; the directory is mounted via a volume.
+ENTRYPOINT ["pi"]
