@@ -47,14 +47,25 @@ function ai --description 'Buld and run AI containers'
             end
 
             set -l abs_folder (realpath $folder)
+
+            set -l extra_volumes
+            switch $harness
+                case "pi"
+                    set -a extra_volumes --volume "$HOME/.pi/agent/auth.json:/home/pi/.pi/agent/auth.json"
+                case "claude"
+                    set -a extra_volumes --volume "$HOME/.claude:/home/claude/.claude"
+            end
+
             echo "Running container with $abs_folder mounted at /workspace"
             container run\
                 --rm\
                 --interactive\
                 --tty\
+                --memory 2G\
                 --volume "$abs_folder:/workspace"\
+                --volume "$HOME/.claude.json:/home/claude/.claude.json"\
+                $extra_volumes\
                 --workdir /workspace\
-                --publish "38095:38095"\
                 "aicontainer-$harness:local"
                 #--volume "~/.pi/agent/auth.json:/home/pi/.pi/agent/auth.json"\
 
