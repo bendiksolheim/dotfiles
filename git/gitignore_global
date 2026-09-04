@@ -18,3 +18,5 @@ TAGS
 
 # Customer
 local-format.sh
+
+**/.claude/settings.local.json
