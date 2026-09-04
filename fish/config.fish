@@ -5,15 +5,18 @@ if status is-interactive
     # Use nvim as editor
     set -gx EDITOR nvim
     set -gx VISUAL nvim
+
+    # Add local bin folder to path
+    fish_add_path /Users/bendik/.local/bin
 end
 
 # Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/bendik.solheim/.lmstudio/bin
+set -gx PATH $PATH "$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 
 # pnpm
-set -gx PNPM_HOME "/Users/bendik.solheim/Library/pnpm"
+set -gx PNPM_HOME "$HOME/Library/pnpm"
 if not string match -q -- "$PNPM_HOME/bin" $PATH
   set -gx PATH "$PNPM_HOME/bin" $PATH
 end
