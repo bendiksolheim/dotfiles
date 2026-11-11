@@ -23,7 +23,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME/bin:$PATH"
 
 # Install Claude
-RUN pnpm add -g --dangerously-allow-all-builds @anthropic-ai/claude-code
+RUN pnpm add -g --dangerously-allow-all-builds @anthropic-ai/claude-code@latest
 
 RUN useradd --create-home --shell /bin/bash claude
 
@@ -35,6 +35,14 @@ ENV RUSTUP_HOME="/home/claude/.rustup"
 ENV CARGO_HOME="/home/claude/.cargo"
 ENV PATH="$CARGO_HOME/bin:$PATH"
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable --profile minimal \
- && rustup component add clippy rustfmt
+ && rustup component add clippy rustfmt llvm-tools-preview
+
+# Prebuilt binaries — `cargo install` from source adds ~10 min to the image build
+RUN curl -L --proto '=https' --tlsv1.2 -sSf \
+      https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash \
+ && cargo binstall -y cargo-nextest cargo-llvm-cov cargo-mutants
+
+# Keep container artifacts out of the bind-mounted workspace
+ENV CARGO_TARGET_DIR="/home/claude/.cargo-target"
 
 ENTRYPOINT ["bash"]
