@@ -61,7 +61,7 @@ function ai --description 'Buld and run AI containers'
                 --rm\
                 --interactive\
                 --tty\
-                --memory 2G\
+                --memory 4G\
                 --volume "$abs_folder:/workspace"\
                 --volume "$HOME/.claude.json:/home/claude/.claude.json"\
                 $extra_volumes\
