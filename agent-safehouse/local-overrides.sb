@@ -1,0 +1,13 @@
+(deny file-read* file-write*
+  (home-literal "/.npmrc")
+  (home-subpath "/.ssh")
+)
+
+(allow file-read*
+  (home-subpath "/Library/Application Support/rex")
+  (home-subpath "/.config/mosquitto_sub")
+)
+
+(allow network-outbound
+  (home-subpath "/Library/Application Support/rex/server.sock")
+)
